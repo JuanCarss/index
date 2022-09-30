@@ -11,5 +11,5 @@ class InvertedIndexBuilder:
         return InvertedIndex(index)
 
     def _processfile(self, index, file):
-        for i, word in enumerate(NltkWordTokenizer.tokenize(file[1])):
+        for i, word in enumerate(NltkWordTokenizer().tokenize(file[1])):
             index[word].append((file[0], i))
