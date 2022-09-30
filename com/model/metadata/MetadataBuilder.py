@@ -1,3 +1,7 @@
+from com.model.metadata.Metadata import Metadata
+
+
 class MetadataBuilder:
-    def __init__(self) -> None:
-        super().__init__()
+    def build(self, metadataList):
+        return Metadata(**dict(metadataList))
+
