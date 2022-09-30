@@ -1,4 +1,4 @@
 class Document:
-    def __init__(self, metadata, document):
+    def __init__(self, metadata, content):
         self.metadata = metadata
-        self.document = document
+        self.content = content
