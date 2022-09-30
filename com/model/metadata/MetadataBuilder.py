@@ -1,4 +1,4 @@
-from com.model.metadata.Metadata import Metadata
+from com.model.metadata.metadataImplementations.Metadata import Metadata
 
 
 class MetadataBuilder:
