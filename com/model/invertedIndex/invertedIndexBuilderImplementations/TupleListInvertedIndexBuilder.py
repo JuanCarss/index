@@ -16,6 +16,3 @@ class TupleListInvertedIndexBuilder:
         for i, word in enumerate(self.reader.tokenize(file[1])):
             if self.reader.check(word): continue
             index[word.lower()].append((file[0], i))
-
-    def serialize(self):
-        return None  # TODO
