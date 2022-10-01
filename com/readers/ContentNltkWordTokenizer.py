@@ -8,4 +8,7 @@ class NltkWordTokenizer:
         self.stopwords = set(stopwords.words('english'))
 
     def tokenize(self, content):
-        return [word for word in self.tokenizer.tokenize(content) if word not in self.stopwords]
+        return [word for word in self.tokenizer.tokenize(content)]
+
+    def check(self, word):
+        return word in self.stopwords
