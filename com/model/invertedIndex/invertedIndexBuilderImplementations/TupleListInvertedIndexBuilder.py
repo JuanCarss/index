@@ -1,10 +1,9 @@
 from collections import defaultdict
+from com.model.invertedIndex.InvertedIndex import InvertedIndex
+from com.readers.ContentNltkWordTokenizer import NltkWordTokenizer
 
-from com.model.index.invertedIndexImplementations.InvertedIndex import InvertedIndex
-from com.readers.NltkWordTokenizer import NltkWordTokenizer
 
-
-class InvertedIndexBuilder:
+class TupleListInvertedIndexBuilder:
     def build(self, *files):
         index = defaultdict(list)
         for file in files: self._processfile(index, file)

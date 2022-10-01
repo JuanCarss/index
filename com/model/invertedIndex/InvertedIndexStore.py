@@ -1,3 +1,3 @@
 class InvertedIndexStore:
     def store(self, invertedIndex):
-        return None
+        return None  # TODO

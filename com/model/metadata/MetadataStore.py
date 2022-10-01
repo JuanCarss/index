@@ -1,3 +1,3 @@
 class MetadataStore:
-    def __init__(self) -> None:
-        super().__init__()
+    def store(self, metadata):
+        return None
