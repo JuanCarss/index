@@ -2,6 +2,7 @@ from collections import defaultdict
 
 from com.model.invertedIndex.InvertedIndex import InvertedIndex
 
+
 class LocationInvertedIndexBuilder:
 
     def __init__(self, reader):
