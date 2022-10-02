@@ -1,15 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <document>
 <metadata>
-   [
-   (Title,The Adventures of Sherlock Holmes),
-   (Author,Arthur Conan Doyle),
-   (Release Date,November 29 2002),
-   (id,1661),
-   (Updated Date,May 20 2019),
-   (Language,English)
-   ]
-
+(title,The Adventures of Sherlock Holmes)
+(author,Arthur Conan Doyle)
+(releaseDate,November 29 2002)
+(id,1661)
+(updatedDate,May 20 2019)
+(language,English)
 </metadata>
 <content>
 

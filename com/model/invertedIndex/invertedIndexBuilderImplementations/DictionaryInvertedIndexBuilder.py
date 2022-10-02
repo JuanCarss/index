@@ -11,10 +11,10 @@ class DictionaryInvertedIndexBuilder:
 
     def build(self, content):
         index = dict()
-        self._processfile(content, index)
+        self._process_file(content, index)
         return InvertedIndex(index)
 
-    def _processfile(self, file, index):
+    def _process_file(self, file, index):
         for position, word in enumerate(self.reader.tokenize(file[1])):
             if self.reader.check(word): continue
             if word not in index: index[word] = defaultdict(list)

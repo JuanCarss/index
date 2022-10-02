@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 from com.model.invertedIndex.InvertedIndex import InvertedIndex
 from com.readers.ContentNltkWordTokenizer import ContentNltkWordTokenizer
 
@@ -11,14 +9,20 @@ class LocationInvertedIndexBuilder:
 
     def build(self, content):
         index = dict()
-        self._processfile(content, index)
+        self._process_file(content, index)
         return InvertedIndex(index)
 
-    def _processfile(self, file, index):
+    def _process_file(self, file, index):
         for position, word in enumerate(self.reader.tokenize(file[1])):
             if self.reader.check(word): continue
-            if word not in index: index[word] = defaultdict(Location(file[0]))
-            index[word].add_position(position)
+            if word not in index: index[word] = list()
+            self._process_word(index[word], file[0], position)
+
+    def _process_word(self, locationList, fileId, position):
+        if not locationList:
+            locationList.append(Location(fileId).add_position(position))
+            return
+        locationList[list(map(Location.doc_id, locationList)).index(fileId)].add_position(position)
 
 
 class Location:
@@ -28,6 +32,10 @@ class Location:
 
     def add_position(self, pos):
         self.positions.append(pos)
+        return self
+
+    def doc_id(self):
+        return self.doc_id
 
 
-print(LocationInvertedIndexBuilder(ContentNltkWordTokenizer()).build(("001", "probando movidas jaaj")).index)
+print(LocationInvertedIndexBuilder(ContentNltkWordTokenizer()).build(("001", "probando jaaj movidas jaaj")).index)

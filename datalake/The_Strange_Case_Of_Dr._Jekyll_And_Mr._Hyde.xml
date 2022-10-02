@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <document>
 <metadata>
-	[
-	(Title,The Strange Case Of Dr. Jekyll And Mr. Hyde),
-	(Author,Robert Louis Stevenson),
-	(Release Date,October 31 1992),
-	(id,43),
-	(Updated Date,March 19 2021),
-	(Language,English)
-	]
+(title,The Strange Case Of Dr. Jekyll And Mr. Hyde)
+(author,Robert Louis Stevenson)
+(releaseDate,October 31 1992)
+(id,43)
+(updatedDate,March 19 2021)
+(language,English)
 </metadata>
 <content>
 	Title:
