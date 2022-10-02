@@ -1,6 +1,5 @@
 from collections import defaultdict
 from com.model.invertedIndex.InvertedIndex import InvertedIndex
-from com.readers.ContentNltkWordTokenizer import NltkWordTokenizer
 
 
 class TupleListInvertedIndexBuilder:
