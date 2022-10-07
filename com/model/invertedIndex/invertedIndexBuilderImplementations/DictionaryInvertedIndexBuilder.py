@@ -19,6 +19,3 @@ class DictionaryInvertedIndexBuilder:
             if self.reader.check(word): continue
             if word not in index: index[word] = defaultdict(list)
             index[word][file[0]].append(position)
-
-
-print(DictionaryInvertedIndexBuilder(NltkTokenizer()).build(("001", "probando movidas jaaj")).index)

@@ -1,5 +1,5 @@
 class Document:
-    def __init__(self, metadata, content, id):
+    def __init__(self, id, metadata, content):
+        self.id = id
         self.metadata = metadata
         self.content = content
-        self.id = id

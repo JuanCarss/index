@@ -1,9 +1,14 @@
-from xml.etree import ElementTree
+import os
 
 from com.Document import Document
 
 
-class DirectoryDocumentLoader:
-    def load(self, filename):
-        with open(filename, encoding="UTF-8") as f: file = ElementTree.parse(f).getroot()
-        return Document(file[0].text, file[1].text, filename.split("\\")[-1].split(".")[0])  # FIXME
+class DirectoryDocumentLoader:  # FIXME apply $PROJECT_DIR$
+
+    @staticmethod
+    def load(fileId):
+        result = {"id" : fileId.split("\\")[-1]}
+        for filename in os.listdir(fileId):
+            with open(fileId + "\\" + filename, "r", encoding="UTF-8") as f:
+                result[filename.split(".")[0]] = f.read()
+        return Document(**result)

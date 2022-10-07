@@ -6,5 +6,5 @@ class MetadataBuilder:
         self.parser = parser
 
     def build(self, metadata):
-        return Metadata(**dict(self.parser.parse(metadata)))
+        return Metadata(**(self.parser.parse(metadata)))
 
