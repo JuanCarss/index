@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 from com.model.invertedIndex.InvertedIndex import InvertedIndex
-from com.readers.ContentNltkWordTokenizer import ContentNltkWordTokenizer
+from com.model.tokenizers.NltkTokenizer import NltkTokenizer
 
 
 class DictionaryInvertedIndexBuilder:
@@ -21,4 +21,4 @@ class DictionaryInvertedIndexBuilder:
             index[word][file[0]].append(position)
 
 
-print(DictionaryInvertedIndexBuilder(ContentNltkWordTokenizer()).build(("001", "probando movidas jaaj")).index)
+print(DictionaryInvertedIndexBuilder(NltkTokenizer()).build(("001", "probando movidas jaaj")).index)
