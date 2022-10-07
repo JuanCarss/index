@@ -10,7 +10,7 @@ class InvertedIndexPersister:
             wordPath = InvertedIndexPersister._createVariables(word, path)
             InvertedIndexPersister._createDirectory(wordPath)
             with open(wordPath + "/" + word + ".tsv", 'w') as f:
-                f.write("id\tposition" + invertedIndexToPersist[word])
+                f.write("id\tposition\n" + invertedIndexToPersist[word])
 
     @staticmethod
     def _createDirectory(wordPath):
