@@ -1,3 +1,4 @@
 class MetadataStore:
-    def store(self, metadata):
-        return None  # TODO
+    @staticmethod
+    def store(metadata, serializer, persister):
+        persister.persist(serializer.serialize(metadata))
