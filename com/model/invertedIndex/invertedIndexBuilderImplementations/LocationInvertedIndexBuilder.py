@@ -1,5 +1,5 @@
 from com.model.invertedIndex.InvertedIndex import InvertedIndex
-from com.readers.ContentNltkWordTokenizer import ContentNltkWordTokenizer
+from com.model.tokenizers.NltkTokenizer import NltkTokenizer
 
 
 class LocationInvertedIndexBuilder:
@@ -38,4 +38,4 @@ class Location:
         return self.doc_id
 
 
-print(LocationInvertedIndexBuilder(ContentNltkWordTokenizer()).build(("001", "probando jaaj movidas jaaj")).index)
+print(LocationInvertedIndexBuilder(NltkTokenizer()).build(("001", "probando jaaj movidas jaaj")).index)
