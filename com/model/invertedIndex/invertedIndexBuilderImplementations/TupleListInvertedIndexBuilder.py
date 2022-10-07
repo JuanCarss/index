@@ -1,6 +1,5 @@
 from collections import defaultdict
 from com.model.invertedIndex.InvertedIndex import InvertedIndex
-from com.readers.ContentNltkWordTokenizer import NltkWordTokenizer
 
 
 class TupleListInvertedIndexBuilder:
@@ -9,10 +8,10 @@ class TupleListInvertedIndexBuilder:
 
     def build(self, file):
         index = defaultdict(list)
-        self._processfile(index, file)
+        self._process_file(index, file)
         return InvertedIndex(index)
 
-    def _processfile(self, index, file):
+    def _process_file(self, index, file):
         for i, word in enumerate(self.reader.tokenize(file[1])):
             if self.reader.check(word): continue
             index[word.lower()].append((file[0], i))

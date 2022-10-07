@@ -2,7 +2,7 @@ from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 
 
-class NltkWordTokenizer:
+class ContentNltkWordTokenizer:
     def __init__(self):
         self.tokenizer = RegexpTokenizer(r'\w+')
         self.stopwords = set(stopwords.words('english'))

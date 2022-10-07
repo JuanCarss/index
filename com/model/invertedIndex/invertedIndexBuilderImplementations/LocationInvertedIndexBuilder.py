@@ -1,6 +1,5 @@
-from collections import defaultdict
-
 from com.model.invertedIndex.InvertedIndex import InvertedIndex
+from com.readers.ContentNltkWordTokenizer import ContentNltkWordTokenizer
 
 
 class LocationInvertedIndexBuilder:
@@ -8,26 +7,22 @@ class LocationInvertedIndexBuilder:
     def __init__(self, reader):
         self.reader = reader
 
-    def build(self, file):
-        index = defaultdict()
-        self._processfile(index, file)
+    def build(self, content):
+        index = dict()
+        self._process_file(content, index)
         return InvertedIndex(index)
 
-    def _processFile(self, index, file):
-        (doc_id, content), file_index = file, dict()
-        for i, word in enumerate(self.reader.tokenize(content)):
+    def _process_file(self, file, index):
+        for position, word in enumerate(self.reader.tokenize(file[1])):
             if self.reader.check(word): continue
-            self.indexFile(file_index, i, word)
-        self.updateIndex(file_index, index)
+            if word not in index: index[word] = list()
+            self._process_word(index[word], file[0], position)
 
-    def indexFile(self, file_index, i, word):
-        if word not in file_index:
-            file_index[word].add_position(i)
-        file_index[word].add_position(i)
-
-    def updateIndex(self, file_index, index):
-        for word, location in file_index.items():
-            index[word].append(location)
+    def _process_word(self, locationList, fileId, position):
+        if not locationList:
+            locationList.append(Location(fileId).add_position(position))
+            return
+        locationList[list(map(Location.doc_id, locationList)).index(fileId)].add_position(position)
 
 
 class Location:
@@ -37,3 +32,10 @@ class Location:
 
     def add_position(self, pos):
         self.positions.append(pos)
+        return self
+
+    def doc_id(self):
+        return self.doc_id
+
+
+print(LocationInvertedIndexBuilder(ContentNltkWordTokenizer()).build(("001", "probando jaaj movidas jaaj")).index)

@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <document>
 <metadata>
-	[
-	(Title,The Odyssey),
-	(Author,Homer),
-	(Release Date,April 1999),
-	(id,1727),
-	(Updated Date,January 4 2022),
-	(Language,English)
-	]
+(title,The Odyssey)
+(author,Homer)
+(releaseDate,April 1999)
+(id,1727)
+(updatedDate,January 4 2022)
+(language,English)
 </metadata>
 <content>
 

@@ -1,15 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <document>
-
 <metadata>
-	[
-	(Title,The Picture of Dorian Gray),
-	(Author,Oscar Wilde),
-	(Release Date,October 1994),
-	(id,174),
-	(Updated Date,February 3 2022),
-	(Language,English)
-	]
+(title,The Picture of Dorian Gray)
+(author,Oscar Wilde)
+(releaseDate,October 1994)
+(id,174)
+(updatedDate,February 3 2022)
+(language,English)
 </metadata>
 <content>
 
