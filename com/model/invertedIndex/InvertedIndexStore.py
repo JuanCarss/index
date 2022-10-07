@@ -1,3 +1,4 @@
 class InvertedIndexStore:
-    def store(self, invertedIndex):
-        return None  # TODO
+    @staticmethod
+    def store(invertedIndex, serializer, persister):
+        persister.persiste(serializer.serialize(invertedIndex))
