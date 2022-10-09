@@ -2,7 +2,8 @@ import os
 import time
 import unittest
 from os import listdir
-from os.path import join, abspath
+import random
+
 from com.loaders.DirectoryDocumentLoader import DirectoryDocumentLoader
 from com.model.invertedIndex.invertedIndexBuilderImplementations.TupleListInvertedIndexBuilder import \
     TupleListInvertedIndexBuilder
@@ -50,3 +51,43 @@ class InvertedIndexTimeTest(unittest.TestCase):
             for document in self.documents:
                 self.object_version.build(document)
         print("execution mean time for document to build dicts of objects: ", (time.time() - start_time) / 90)
+
+    def test_consult_time_dic(self):
+        self.setup_method()
+        for document in self.documents:
+            index = self.dic_version.build(document)
+            words = list(index.index.keys())
+            total_time = 0
+            for _ in range(0, 100000):
+                word = random.choice(words)
+                start_time = time.time()
+                var = index.lookup_query(word)
+                total_time += (time.time() - start_time)
+        print("execution mean time for document to consult a word in dicts of dics: ", total_time / 9000)
+
+    def test_consult_time_tuple(self):
+        self.setup_method()
+        for document in self.documents:
+            index = self.tuple_version.build(document)
+            words = list(index.index.keys())
+            total_time = 0
+            for _ in range(0, 100000):
+                word = random.choice(words)
+                start_time = time.time()
+                var = index.lookup_query(word)
+                total_time += (time.time() - start_time)
+        print("execution mean time for document to consult a word in dicts of list of tuples: ", total_time / 9000)
+
+    def test_consult_time_object(self):
+        self.setup_method()
+        for document in self.documents:
+            index = self.object_version.build(document)
+            words = list(index.index.keys())
+            total_time = 0
+            for _ in range(0, 100000):
+                word = random.choice(words)
+                start_time = time.time()
+                var = index.lookup_query(word)
+                total_time += (time.time() - start_time)
+        print("execution mean time for document to consult a word in dicts of objects: ", total_time / 9000)
+
