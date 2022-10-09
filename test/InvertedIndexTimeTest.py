@@ -63,7 +63,7 @@ class InvertedIndexTimeTest(unittest.TestCase):
                 start_time = time.time()
                 var = index.lookup_query(word)
                 total_time += (time.time() - start_time)
-        print("execution mean time for document to consult a word in dicts of dics: ", total_time / 9000)
+        print("execution mean time by document to consult a word in dicts of dics: ", total_time / 9)
 
     def test_consult_time_tuple(self):
         self.setup_method()
@@ -76,7 +76,7 @@ class InvertedIndexTimeTest(unittest.TestCase):
                 start_time = time.time()
                 var = index.lookup_query(word)
                 total_time += (time.time() - start_time)
-        print("execution mean time for document to consult a word in dicts of list of tuples: ", total_time / 9000)
+        print("execution mean time by document to consult a word in dicts of list of tuples: ", total_time / 9)
 
     def test_consult_time_object(self):
         self.setup_method()
@@ -89,5 +89,5 @@ class InvertedIndexTimeTest(unittest.TestCase):
                 start_time = time.time()
                 var = index.lookup_query(word)
                 total_time += (time.time() - start_time)
-        print("execution mean time for document to consult a word in dicts of objects: ", total_time / 9000)
+        print("execution mean time by document to consult a word in dicts of objects: ", total_time / 9)
 
