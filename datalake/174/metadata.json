@@ -1,6 +1,8 @@
-{title:The Picture of Dorian Gray,
-author:Oscar Wilde,
-releaseDate:October 1994,
-id:174,
-updatedDate:February 3 2022,
-language:English}
+{
+	"title":"The Picture of Dorian Gray",
+	"author":"Oscar Wilde",
+	"releaseDate":"October 1994",
+	"id":174,
+	"updatedDate":"February 3 2022",
+	"language":"English"
+}

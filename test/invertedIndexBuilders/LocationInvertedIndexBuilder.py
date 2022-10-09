@@ -1,5 +1,4 @@
 from com.model.invertedIndex.InvertedIndex import InvertedIndex
-from com.model.tokenizers.NltkTokenizer import NltkTokenizer
 
 
 class LocationInvertedIndexBuilder:
@@ -9,10 +8,10 @@ class LocationInvertedIndexBuilder:
 
     def build(self, document):
         index = dict()
-        self._process_file(document, index)
+        self._process_document(document, index)
         return InvertedIndex(index)
 
-    def _process_file(self, document, index):
+    def _process_document(self, document, index):
         for position, word in enumerate(self.reader.tokenize(document.content)):
             if self.reader.check(word): continue
             if word not in index: index[word] = list()

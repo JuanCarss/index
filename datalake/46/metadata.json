@@ -1,6 +1,8 @@
-{title:A Christmas Carol A Ghost Story of Christmas,
-author:Charles Dickens,
-releaseDate:1992,
-id:46,
-updatedDate:March 4 2018,
-language:English}
+{
+	"title":"A Christmas Carol A Ghost Story of Christmas",
+	"author":"Charles Dickens",
+	"releaseDate":1992,
+	"id":46,
+	"updatedDate":"March 4 2018",
+	"language":"English"
+}

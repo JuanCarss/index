@@ -8,10 +8,10 @@ class TupleListInvertedIndexBuilder:
 
     def build(self, document):
         index = defaultdict(list)
-        self._process_file(index, document)
+        self._process_document(index, document)
         return InvertedIndex(index)
 
-    def _process_file(self, index, document):
+    def _process_document(self, index, document):
         for i, word in enumerate(self.reader.tokenize(document.content)):
             if self.reader.check(word): continue
             index[word.lower()].append((document.id, i))

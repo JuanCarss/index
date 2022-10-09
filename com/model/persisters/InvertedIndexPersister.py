@@ -1,13 +1,15 @@
 import os
-from os.path import realpath, dirname, abspath, join
+from os.path import abspath, join
+import shutil
+
 
 class InvertedIndexPersister:
 
     @staticmethod
     def persist(invertedIndexToPersist):
-        path = abspath(join(__file__ ,"../../../..") + "/invertedIndex/indexs")
+        if os.path.exists(os.environ["DATAMART"]): shutil.rmtree(os.environ["DATAMART"])
         for word in invertedIndexToPersist:
-            wordPath = InvertedIndexPersister._createVariables(word, path)
+            wordPath = InvertedIndexPersister._createVariables(word, os.environ["DATAMART"])
             InvertedIndexPersister._createDirectory(wordPath)
             with open(wordPath + "/" + word + ".tsv", 'w') as f:
                 f.write("id\tposition\n" + invertedIndexToPersist[word])
@@ -20,6 +22,3 @@ class InvertedIndexPersister:
     def _createVariables(word, path):
         wordPath = path + "/" + word[0] + "/" + word[0:2]
         return wordPath
-
-
-InvertedIndexPersister.persist({'wasd': '\nasdf\tasdf\nasdf\tasdf', 'bas': '\nasdf\tasdf'})
