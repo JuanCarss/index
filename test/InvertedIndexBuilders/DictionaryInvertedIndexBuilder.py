@@ -9,13 +9,13 @@ class DictionaryInvertedIndexBuilder:
     def __init__(self, reader):
         self.reader = reader
 
-    def build(self, content):
+    def build(self, document):
         index = dict()
-        self._process_file(content, index)
+        self._process_file(document, index)
         return InvertedIndex(index)
 
-    def _process_file(self, file, index):
-        for position, word in enumerate(self.reader.tokenize(file[1])):
+    def _process_file(self, document, index):
+        for position, word in enumerate(self.reader.tokenize(document.content)):
             if self.reader.check(word): continue
             if word not in index: index[word] = defaultdict(list)
-            index[word][file[0]].append(position)
+            index[word][document.id].append(position)

@@ -7,22 +7,22 @@ class LocationInvertedIndexBuilder:
     def __init__(self, reader):
         self.reader = reader
 
-    def build(self, content):
+    def build(self, document):
         index = dict()
-        self._process_file(content, index)
+        self._process_file(document, index)
         return InvertedIndex(index)
 
-    def _process_file(self, file, index):
-        for position, word in enumerate(self.reader.tokenize(file[1])):
+    def _process_file(self, document, index):
+        for position, word in enumerate(self.reader.tokenize(document.content)):
             if self.reader.check(word): continue
             if word not in index: index[word] = list()
-            self._process_word(index[word], file[0], position)
+            self._process_word(index[word], document.id, position)
 
-    def _process_word(self, locationList, fileId, position):
+    def _process_word(self, locationList, documentId, position):
         if not locationList:
-            locationList.append(Location(fileId).add_position(position))
+            locationList.append(Location(documentId).add_position(position))
             return
-        locationList[list(map(Location.doc_id, locationList)).index(fileId)].add_position(position)
+        locationList[list(map(Location.doc_id, locationList)).index(documentId)].add_position(position)
 
 
 class Location:
@@ -38,4 +38,3 @@ class Location:
         return self.doc_id
 
 
-print(LocationInvertedIndexBuilder(NltkTokenizer()).build(("001", "probando jaaj movidas jaaj")).index)
