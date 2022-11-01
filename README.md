@@ -6,7 +6,7 @@ An inverted index stores the words as index and document names as mapped referen
 
 ## Built with
 
-This project has been built with Python programming lenguage at Pycharm IDE.
+This project has been built with Python programming language at Pycharm IDE.
 
 ## Getting Started
 
